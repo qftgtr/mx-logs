@@ -19,7 +19,7 @@
       ref: "origin/master",
       repo: "https://github.com/qftgtr/mx-logs.git",
       path: "/var/www/mx-logs",
-      "post-deploy": "pwd;npm install --production;pm2 startOrRestart --env production",
+      "post-deploy": "pwd;npm install --production;pm2 startOrRestart ecosystem.json --env production",
       env: {
         NODE_ENV: "production",
         MONGO_URI: "mongodb://localhost:27017/mx-logs"
