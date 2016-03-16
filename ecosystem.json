@@ -3,6 +3,8 @@
     {
       name: "mx-logs",
       script: "index.js",
+      instances: 4,
+      exec_mode: "cluster_mode",
       env: {
         COMMON_VARIABLE: "true"
       },
