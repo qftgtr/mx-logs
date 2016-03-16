@@ -62,18 +62,22 @@ function startServer() {
         error_describe: query.error_describe || null,
         timestamp: new Date(),
       };
-      winston.info(obj);
+//      winston.info(obj);
 
       coll.insert(obj, function(err, result) {
         if (err) {
           res.json({success: false});
-          throw err;
+          return;
         }
         nLogs++;
         nLogsMetric.set(nLogs);
+        obj = null;
+        query = null;
+        
         res.json({success: true});
       });
     } else {
+      query = null;
       res.json({success: false});
     }
   });
