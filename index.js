@@ -51,31 +51,8 @@ function startServer() {
   //app.use(bodyParser.urlencoded({ extended: true }));
 
   app.post('/api/logs/post', bodyParser.urlencoded({ extended: true }), function(req, res) {
-    var query = req.body;
-
-    if (query.phone) {
-      var obj = {
-        phone: query.phone,
-        func: query.func || null,
-        app_describe: query.app_describe || null,
-        model_describe: query.model_describe || null,
-        error_describe: query.error_describe || null,
-        timestamp: new Date(),
-      };
-      winston.info(obj);
-
-      coll.insert(obj, function(err, result) {
-        if (err) {
-          res.json({success: false});
-          throw err;
-        }
-        nLogs++;
-        nLogsMetric.set(nLogs);
-        res.json({success: true});
-      });
-    } else {
-      res.json({success: false});
-    }
+    res.json({success: false});
+    
   });
 
   app.get('/api/logs/get', function(req, res) {
