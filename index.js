@@ -60,7 +60,11 @@ function startServer() {
         app_describe: query.app_describe || null,
         model_describe: query.model_describe || null,
         error_describe: query.error_describe || null,
-        timestamp: new Date(),
+        userId: query.userId || null,
+        requestContent: query.requestContent || null,
+        extend1: query.extend1 || null,
+        extend2: query.extend2 || null,
+        createdAt: new Date(),
       };
 //      winston.info(obj);
 
