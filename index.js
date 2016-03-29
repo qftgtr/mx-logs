@@ -78,7 +78,7 @@ function startServer() {
         obj = null;
         query = null;
         
-        res.json({success: true});
+        res.json({success: true, obj: obj, result: result});
       });
     } else {
       query = null;
