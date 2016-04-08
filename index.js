@@ -97,7 +97,7 @@ function startServer() {
     if (query.phone)
       q.phone = query.phone;
     
-    var limit = query.nlog || 100;
+    var limit = parseInt(query.nlog,10) || 100;
 
     coll.find(q, {_id: false}).limit(limit).sort({createdAt: -1}).toArray(function(err, docs) {
       if (err) {
