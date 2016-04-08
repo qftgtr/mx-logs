@@ -97,6 +97,9 @@ function startServer() {
     if (query.phone)
       q.phone = query.phone;
     
+    if (query.version)
+      q.app_describe = {'$regex': query.version};
+    
     var limit = parseInt(query.nlog,10) || 100;
 
     coll.find(q, {_id: false}).limit(limit).sort({createdAt: -1}).toArray(function(err, docs) {
